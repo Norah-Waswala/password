@@ -17,3 +17,9 @@ class credentials:
         a method that saves the new instance of credentials
         '''
         credentials.credentials_list.append(self)
+
+    def delete_credentials(self): 
+        '''
+        a method that deletes a credentials's account
+        '''
+        credentials.credentials_list.remove(self)
