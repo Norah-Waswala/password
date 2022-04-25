@@ -23,3 +23,36 @@ class credentials:
         a method that deletes a credentials's account
         '''
         credentials.credentials_list.remove(self)
+
+    @classmethod
+    def find_by_account_username(cls,string):
+        for credentials in cls.credentials_list:
+            if credentials.account_username == string:
+                return credentials
+
+                            
+    @classmethod
+    def credentials_exist(cls,string):
+        """checks if a credential exists
+
+        Args:
+            string (string): account_name 
+        """        
+        for credentials in cls.credentials_list:
+            if credentials.account_name == string:
+                return True
+        return False
+
+    @classmethod
+    def display_credentialss(cls):
+        '''
+        method that returns the credentials list
+        '''
+        return cls.credentials_list
+
+#     @classmethod
+#     def copy_credentials(cls,string):
+#         credentials_found = Credentials.find_by_username(string)
+#         pyperclip.copy(credentials_found.credentials)
+
+        

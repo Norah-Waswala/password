@@ -86,6 +86,35 @@ class Testcredentials(unittest.TestCase):
         self.new_credentials.delete_credentials()# Deleting a credentials object
         self.assertEqual(len(credentials.credentials_list),0)
 
+    def test_find_credentials_by_username(self):
+        self.new_credentials.save_credentials()
+        test_credentials=credentials("instagram","insta-norah","$!dg68r6hd") # new credential
+        test_credentials.save_credentials()
+        # test_credentials = Credentials("Test","test@user.com") # new contact
+        found_credentials = credentials.find_by_account_username("insta-norah")
+        self.assertEqual(found_credentials.passcode,test_credentials.passcode)
+
+    def test_credentials_exists(self):
+        self.new_credentials.save_credentials()
+        test_credentials =credentials("instagram","insta-norah","$!dg68r6hd") # new contact
+        test_credentials.save_credentials()
+        credentials_exists = credentials.credentials_exist("instagram")
+        self.assertTrue(credentials_exists)
+
+    def test_display_all_credentialss(self):
+        self.assertEqual(credentials.display_credentialss(),credentials.credentials_list) 
+
+#     def test_copy_credentials(self):
+#         '''
+#         Test to confirm that we are copying the email address from a found contact
+#         '''
+
+#         self.new_credentials.save_credentials()
+#         Credentials.copy_credentials("Test")
+
+#         self.assertEqual(self.new_credentials.credentials,pyperclip.paste())
+
+       
 
 
 if __name__ == '__main__':
