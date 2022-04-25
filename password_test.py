@@ -1,7 +1,7 @@
 from user import User
 from credentials import credentials
 import unittest
-# import pyperclip
+import pyperclip
 #user tests
 class Testuser(unittest.TestCase):
     '''
@@ -86,7 +86,10 @@ class Testcredentials(unittest.TestCase):
         self.new_credentials.delete_credentials()# Deleting a credentials object
         self.assertEqual(len(credentials.credentials_list),0)
 
-    def test_find_credentials_by_username(self):
+    def test_find_credentials_by_account_username(self):
+        '''
+         test to check if we can find a credential entry by account username and display the details of the credential
+        '''
         self.new_credentials.save_credentials()
         test_credentials=credentials("instagram","insta-norah","$!dg68r6hd") # new credential
         test_credentials.save_credentials()
@@ -95,6 +98,9 @@ class Testcredentials(unittest.TestCase):
         self.assertEqual(found_credentials.passcode,test_credentials.passcode)
 
     def test_credentials_exists(self):
+        '''
+        test to check if we can return a true or false based on whether we find or can't find the credential.
+        '''
         self.new_credentials.save_credentials()
         test_credentials =credentials("instagram","insta-norah","$!dg68r6hd") # new contact
         test_credentials.save_credentials()
@@ -102,19 +108,24 @@ class Testcredentials(unittest.TestCase):
         self.assertTrue(credentials_exists)
 
     def test_display_all_credentialss(self):
+        '''
+         test method to test if we can display all credentials from our credentials_list
+        '''
         self.assertEqual(credentials.display_credentialss(),credentials.credentials_list) 
 
-#     def test_copy_credentials(self):
-#         '''
-#         Test to confirm that we are copying the email address from a found contact
-#         '''
+    def test_copy_passcode(self):
+        '''
+        Test to confirm that we are copying the passward code from a found credential
+        '''
 
-#         self.new_credentials.save_credentials()
-#         Credentials.copy_credentials("Test")
+        self.new_credentials.save_credentials()
+        credentials.copy_passcode("insta-norah")
 
-#         self.assertEqual(self.new_credentials.credentials,pyperclip.paste())
+        self.assertEqual(self.new_credentials.passcode,pyperclip.paste())
 
        
+    
+   
 
 
 if __name__ == '__main__':
