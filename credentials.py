@@ -1,4 +1,5 @@
 import pyperclip
+import random
 class credentials:
     """
     Class that generates new instances of credentials.
@@ -51,9 +52,25 @@ class credentials:
         '''
         return cls.credentials_list
 
-    @classmethod
-    def copy_passcode(cls,string):
-        credentials_found = credentials.find_by_account_username(string)
-        pyperclip.copy(credentials_found.account_username)
+    # @classmethod
+    # def copy_passcode(cls,string):
+    #     credentials_found = credentials.find_by_account_username(string)
+    #     pyperclip.copy(credentials_found.account_username)
+
+       
+
+chars="abcdefghijklmnopqrstuvwxyz123456789#@$*&!"
+
+while 1:
+    passward_len=int(input("what length would you want your passward to be:"))
+    passward_count=int(input("how many passwards do you need:"))
+    for x in range(0,passward_count):
+        passward=""
+        for x in range(0,passward_len):
+            passward_char=random.choice(chars)
+            passward     =passward+passward_char
+        print("Here is your passward : ",passward)
+
+
 
         

@@ -113,15 +113,15 @@ class Testcredentials(unittest.TestCase):
         '''
         self.assertEqual(credentials.display_credentialss(),credentials.credentials_list) 
 
-    def test_copy_passcode(self):
-        '''
-        Test to confirm that we are copying the passward code from a found credential
-        '''
+    # def test_copy_passcode(self):
+    #     '''
+    #     Test to confirm that we are copying the passward code from a found credential
+    #     '''
 
-        self.new_credentials.save_credentials()
-        credentials.copy_passcode("insta-norah")
+    #     self.new_credentials.save_credentials()
+    #     credentials.copy_passcode("insta-norah")
 
-        self.assertEqual(self.new_credentials.passcode,pyperclip.paste())
+    #     self.assertEqual(self.new_credentials.passcode,pyperclip.paste())
 
        
     
