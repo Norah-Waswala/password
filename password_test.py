@@ -35,36 +35,36 @@ class Testuser(unittest.TestCase):
         self.assertEqual(len(User.user_list),1)
        
         # credentials tests
-# # class Testcredentials(unittest.TestCase):
-#     '''
-#     Test class that defines test cases for the credentials class behaviours.
-#     '''
-#     def setUp(self):
-#         '''
-#          Set up method to run before each test cases.
-#         '''
-#         self.new_credentials = credentials("twitter","twit-norah","@#he37336")
+class Testcredentials(unittest.TestCase):
+    '''
+    Test class that defines test cases for the credentials class behaviours.
+    '''
+    def setUp(self):
+        '''
+         Set up method to run before each test cases.
+        '''
+        self.new_credentials = credentials("twitter","twit-norah","@#he37336")
     
-#     def test_init(self):
-#         '''
-#         test_init test case to test if the object is initialized properly
-#         '''
-#         self.assertEqual(self.new_credentials.account_name,"twitter")
-#         self.assertEqual(self.new_credentials.account_username,"twit-norah")
-#         self.assertEqual(self.new_credentials.passcode,"@#he37336")
+    def test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+        self.assertEqual(self.new_credentials.account_name,"twitter")
+        self.assertEqual(self.new_credentials.account_username,"twit-norah")
+        self.assertEqual(self.new_credentials.passcode,"@#he37336")
     
-#     def tearDown(self):
-#         '''
-#         tearDown method that does clean up after each test case has run.
-#         '''
-#         credentials.credentials_list = []
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
+        credentials.credentials_list = []
         
-#     def test_save_credentials(self):
-#         '''
-#         save_credentials method saves credentials objects into credentials_list
-#         '''
-#         self.new_credentials.save_credentials()
-#         self.assertEqual(len(credentials.credentials_list),1)
+    def test_save_credentials(self):
+        '''
+        save_credentials method saves credentials objects into credentials_list
+        '''
+        self.new_credentials.save_credentials()
+        self.assertEqual(len(credentials.credentials_list),1)
     
 #     def test_save_multiple_credentials(self):
 #         '''
