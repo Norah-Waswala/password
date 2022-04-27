@@ -17,11 +17,11 @@ def save_user(user):
     '''
     user.save_user()
 
-def create_new_credential(account_name,account_username,passcode):
+def create_new_credential(account_name,account_username,password):
     """
     Function that creates new credentials for a given user account
     """
-    new_credential = credentials(account_name,account_username,passcode)
+    new_credential = credentials(account_name,account_username,password)
     return new_credential
     
 def display_user():
@@ -34,14 +34,14 @@ def login_user(username,password):
     function that checks whether a user exist and then login the user in.
     """
   
-    check_user = User.verify_user(username,password)
-    return check_user
+    a_user = User.verify_user(username,password)
+    return a_user
 #credentials
-def create_credential(account_name,account_userName,passcode):
+def create_credential(account_name,account_userName,password):
     """
     Function that creates new credentials for a given user account
     """
-    new_credential =credentials(account_name,account_userName,passcode)
+    new_credential =credentials(account_name,account_userName,password)
     return new_credential
 def save_credentials(credentials):
     """
@@ -92,7 +92,7 @@ def passlocker():
     short_code=input("").lower().strip()
     if short_code == "ca":
         print("Sign Up")
-        # print('*' * 50)
+        print('*' * 50)
         username = input("User_name: ")
         while True:
             print(" TP - To type your own pasword:\n GP - To generate random Password")
@@ -115,9 +115,9 @@ def passlocker():
         print('*' * 50)
         username = input("User name: ")
         password = input("password: ")
-        login = login_user(username,password)
-        if login_user == login:
-            print("Hello {username}.Welcome To PassWord Locker Manager")  
+        a_user = login_user(username,password)
+        if login_user == a_user:
+            print(f"Hello {username}.Welcome To PassWord Manager")  
             print('\n')
     while True:
         print("Use these short codes:\n CC - Create a new credential \n DC - Display Credentials \n FC - Find a credential \n GP - Generate A randomn password \n D - Delete credential \n EX - Exit the application \n")
@@ -151,7 +151,7 @@ def passlocker():
                 print('*' * 30)
                 print('_'* 30)
                 for account in display_credentials():
-                    print(f" Account:{account.account_name} \n User Name:{account.account_username}\n Password:{account.passcode}")
+                    print(f" Account:{account.account_name} \n User Name:{account.account_username}\n Password:{account.password}")
                     print('_'* 30)
                 print('*' * 30)
             else:

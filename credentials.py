@@ -7,13 +7,13 @@ class credentials:
     """
     credentials_list=[]
 
-    def __init__(self,account_name,account_username,passcode):   
+    def __init__(self,account_name,account_username,password):   
         """
         method that defines the properties of a credentials.
         """ 
         self.account_name=account_name  
         self.account_username=account_username
-        self.passcode=passcode
+        self.password=password
       
     def save_credentials(self):
         '''
@@ -30,7 +30,7 @@ class credentials:
     @classmethod
     def find_credential(cls,account):
         for credentials in cls.credentials_list:
-            if credentials.account_username == account:
+            if credentials.account_name == account:
                 return credentials
 
                             
@@ -54,7 +54,7 @@ class credentials:
         return cls.credentials_list
 
     # @classmethod
-    # def copy_passcode(cls,string):
+    # def copy_password(cls,string):
     #     credentials_found = credentials.find_by_account_username(string)
     #     pyperclip.copy(credentials_found.account_username)
 
